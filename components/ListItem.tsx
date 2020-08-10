@@ -11,7 +11,8 @@ const ListItem = ({ data }: Props) => {
         var s1 = 1;
 
 
-        var s2 = 1
+        var s2 = 1;
+
     })
     return (
         <Link href="/users/[id]" as={`/users/${data.id}`}>
