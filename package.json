@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0",
+    "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0"
   },
   "dependencies": {
     "next": "^9.5.1",
@@ -29,6 +29,7 @@
     "eslint-plugin-react-hooks": "^0.0.0-f77c7b9d7",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "typescript": "3.7.3"
@@ -36,7 +37,7 @@
   "pre-commit": "lint-staged",
   "lint-staged": {
     "*.{ts,tsx}": [
-      "npm run eslint",
+      "eslint",
       "pretty-quick --staged",
       "git add"
     ]

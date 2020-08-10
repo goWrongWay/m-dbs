@@ -10,16 +10,6 @@ const ListItem = ({ data }: Props) => {
     useEffect(() => {
 
 
-        var s134 = 1;
-
-
-        var s12 = 1;
-
-
-
-
-
-        var s2 = 1;
 
     })
     return (
