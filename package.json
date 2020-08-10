@@ -33,11 +33,7 @@
     "pretty-quick": "^2.0.1",
     "typescript": "3.7.3"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
+  "pre-commit": "lint-staged",
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run eslint",
