@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0"
+    "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "next": "^9.5.1",
@@ -35,7 +36,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
