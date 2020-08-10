@@ -7,8 +7,7 @@
         "start": "next start",
         "type-check": "tsc",
         "lint-staged": "lint-staged",
-        "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0",
-        "prettier": "pretty-quick --staged"
+        "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0"
     },
     "dependencies": {
         "next": "^9.5.1",
@@ -40,8 +39,7 @@
     "lint-staged": {
         "*.{ts,tsx}": [
             "npm run eslint",
-            "pretty-quick --staged",
-            "git add"
+            "pretty-quick --staged"
         ]
     },
     "license": "ISC"
