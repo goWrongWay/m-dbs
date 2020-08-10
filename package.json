@@ -7,7 +7,7 @@
     "start": "next start",
     "type-check": "tsc",
     "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0",
-    "lint-staged": "lint-staged"
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "next": "^9.5.1",
