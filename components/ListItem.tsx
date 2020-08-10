@@ -9,6 +9,7 @@ type Props = {
 const ListItem = ({ data }: Props) => {
     useEffect(() => {
 
+
         var s1 = 1;
 
         var s12 = 1;
