@@ -34,14 +34,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.{ts,tsx}": [
       "npm run eslint",
-      "pretty-quick --staged",
-      "git add"
+      "pretty-quick --staged"
     ]
   },
   "license": "ISC"
