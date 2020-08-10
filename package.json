@@ -38,9 +38,10 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "npm run eslint",
-      "pretty-quick --staged"
+      "pretty-quick --staged",
+      "git add"
     ]
   },
   "license": "ISC"
