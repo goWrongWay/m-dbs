@@ -7,7 +7,6 @@
     "start": "next start",
     "type-check": "tsc",
     "eslint": "eslint . --ext js,jsx,ts,tsx --max-warnings=0",
-    "precommit": "lint-staged"
   },
   "dependencies": {
     "next": "^9.5.1",
@@ -36,7 +35,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx lint-staged"
+      "pre-commit": "pretty-quick --staged"
     }
   },
   "lint-staged": {
