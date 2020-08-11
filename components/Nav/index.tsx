@@ -7,7 +7,7 @@ import styles from './index.less'
 //     primaryPath: string
 // }
 
-const List = () => {
+const List = (props: any) => {
     const navList = [
         { pathname: '/', mp: '', title: 'Home' },
         { pathname: '/about', mp: 'about', title: 'about' },
@@ -15,7 +15,7 @@ const List = () => {
     ]
     // 获取当前url参数中的mp，表示当前主导航，用作导航选中样式
     const { query } = useURL()
-    const mainPath = query.mp || ''
+    const mainPath = query.mp || props.mp
     console.log(mainPath)
     return (
         <nav>
