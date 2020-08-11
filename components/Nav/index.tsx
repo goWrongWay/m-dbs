@@ -1,6 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import useURL from '../../hooks/useURL'
 import styles from './index.less'
 
 // type Props = {
@@ -13,9 +13,10 @@ const List = () => {
         { pathname: '/about', mp: 'about', title: 'about' },
         { pathname: '/users', mp: 'users', title: 'users' },
     ]
-    const router = useRouter()
-    // const mp = router.query.mp
-    console.log(router)
+    // 获取当前url参数中的mp，表示当前主导航，用作导航选中样式
+    const { query } = useURL()
+    const mainPath = query.mp || ''
+    console.log(mainPath)
     return (
         <nav>
             {navList.map((nav) => {
@@ -25,7 +26,9 @@ const List = () => {
                         href={{ pathname: pathname, query: { mp: mp } }}
                         key={pathname}
                     >
-                        <a className={styles.active}>{title}</a>
+                        <a className={mp === mainPath ? styles.active : ''}>
+                            {title}
+                        </a>
                     </Link>
                 )
             })}
