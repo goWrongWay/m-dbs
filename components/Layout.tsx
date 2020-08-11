@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
-import Nav from './Nav'
+import Header from './Header'
 type Props = {
     children?: ReactNode
     title?: string
@@ -16,9 +16,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                 content="initial-scale=1.0, width=device-width"
             />
         </Head>
-        <header>
-            <Nav />
-        </header>
+        <Header></Header>
         {children}
         <footer>
             <hr />
