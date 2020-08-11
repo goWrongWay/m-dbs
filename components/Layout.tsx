@@ -4,14 +4,9 @@ import Nav from './Nav'
 type Props = {
     children?: ReactNode
     title?: string
-    mp?: string
 }
 
-const Layout = ({
-    children,
-    title = 'This is the default title',
-    mp,
-}: Props) => (
+const Layout = ({ children, title = 'This is the default title' }: Props) => (
     <div>
         <Head>
             <title>{title}</title>
@@ -22,7 +17,7 @@ const Layout = ({
             />
         </Head>
         <header>
-            <Nav mp={mp} />
+            <Nav />
         </header>
         {children}
         <footer>
