@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import Header from './Header'
+import Search from './Search'
 type Props = {
     children?: ReactNode
     title?: string
@@ -17,6 +18,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
             />
         </Head>
         <Header></Header>
+        <Search></Search>
         {children}
         <footer>
             <hr />
