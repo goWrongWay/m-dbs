@@ -23,7 +23,6 @@ export default ProductList
 export async function getStaticProps(context: GetStaticPropsContext) {
     let res = await fetch(`http://localhost:3000/api/goods`)
     let data = await res.json()
-    console.log(data, 33)
     return {
         props: { sampleGoodsData: data },
     }
