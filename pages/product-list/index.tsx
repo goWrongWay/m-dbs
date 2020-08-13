@@ -21,13 +21,13 @@ const ProductList = ({ a, message, sampleGoodsData }: Props) => (
 export default ProductList
 // export const getStaticProps: GetStaticProps = async (context) => {
 export async function getStaticProps(context: GetStaticPropsContext) {
-    // let host = 'https://dbs-shopping-mall.vercel.app/'
-    // if (context.preview) {
-    //     host = 'http://localhost:3000'
-    // }
-    // let res = await fetch(`${host}/api/goods`)
-    // let data = await res.json()
+    let host = 'https://dbs-shopping-mall.vercel.app/'
+    if (context.preview) {
+        host = 'http://localhost:3000'
+    }
+    let res = await fetch(`${host}/api/goods`)
+    let data = await res.json()
     return {
-        props: { sampleGoodsData: [] },
+        props: { sampleGoodsData: data },
     }
 }
