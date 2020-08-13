@@ -21,11 +21,6 @@ const ProductList = ({ a, message, sampleGoodsData }: Props) => (
 export default ProductList
 // export const getStaticProps: GetStaticProps = async (context) => {
 export async function getStaticProps(context: GetStaticPropsContext) {
-    // If you request this page with the preview mode cookies set:
-    //
-    // - context.preview will be true
-    // - context.previewData will be the same as
-    //   the argument used for `setPreviewData`.
     let res = await fetch(`http://localhost:3000/api/goods`)
     let data = await res.json()
     console.log(data, 33)
