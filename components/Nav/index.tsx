@@ -3,7 +3,7 @@ import Link from 'next/link'
 import useURL from '../../hooks/useURL'
 import styles from './index.less'
 import { useEffect, useState } from 'react'
-
+import Open from '../../svgs/open.svg'
 // type Props = {
 //     primaryPath: string
 // }
@@ -21,6 +21,7 @@ const Nav = () => {
     }, [query.mp])
     return (
         <nav className={styles.nav}>
+            <Open></Open>
             {navList.map((nav) => {
                 const { pathname, mp, title } = nav
                 return (
