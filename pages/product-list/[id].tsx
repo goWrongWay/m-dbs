@@ -40,13 +40,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // Get the paths we want to pre-render based on users
     // let host = 'https://dbs-shopping-mall.vercel.app/'
     //
-    // // host = 'http://localhost:3000';
+    // host = 'http://localhost:3000';
     // let res = await fetch(`${host}/api/searchTags`)
     // let data = await res.json()
     // const paths = data.map((tag: Tags) => ({
     //     params: { id: tag.label },
     // }))
-    return { paths: [{ params: { id: 105 } }], fallback: true }
+    return { paths: [{ params: { id: 'Alice' } }], fallback: true }
 }
 
 // This function gets called at build time on server-side.
