@@ -46,10 +46,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // const paths = data.map((tag: Tags) => ({
     //     params: { id: tag.label },
     // }))
-    return {
-        paths: [{ params: { id: 105, label: 'T-shirt' } }],
-        fallback: true,
-    }
+    return { paths: [{ params: { id: 105 } }], fallback: true }
 }
 
 // This function gets called at build time on server-side.
