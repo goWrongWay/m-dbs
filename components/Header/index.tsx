@@ -7,7 +7,11 @@ import Link from 'next/link'
 const Header = () => (
     <div className={styles.layout}>
         <Nav></Nav>
-        <h1>SHEOUT</h1>
+        <Link href={'/'}>
+            <a href="">
+                <h1>SHEOUT</h1>
+            </a>
+        </Link>
         <div className={styles.right}>
             <Link href={'/search'}>
                 <a href="">
