@@ -15,3 +15,10 @@ export type Goods = {
     price: string
     imgurl: string
 }
+
+export type Tags = {
+    id: number
+    label: string
+    img?: string
+}
+

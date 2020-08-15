@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import Header from './Header'
-import Search from './Search'
+import NavigationBar from './NavigationBar'
 import commonStyle from '../less/common.less'
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 }
 
 const Layout = ({ children, title = 'This is the default title' }: Props) => (
-    <div className={commonStyle.w}>
+    <div>
         <Head>
             <title>{title}</title>
             <meta charSet="utf-8" />
@@ -19,8 +19,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                 content="initial-scale=1.0, width=device-width"
             />
         </Head>
-        <Header></Header>
-        <Search></Search>
+        <Header />
         {children}
         <footer className={commonStyle.footer}>
             <ul className={commonStyle.footerList}>
@@ -41,6 +40,8 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                 </li>
             </ul>
         </footer>
+        <NavigationBar />
+
     </div>
 )
 

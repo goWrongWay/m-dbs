@@ -12,12 +12,6 @@ const Search = () => {
                 <Link href={'#'}>
                     <a href="">new 2020</a>
                 </Link>
-                <Link href={'#'}>
-                    <a href="">special</a>
-                </Link>
-                <Link href={'#'}>
-                    <a href="">swimwear</a>
-                </Link>
             </div>
             <div className={styles.search}>
                 <input className={styles.input} type="text" />

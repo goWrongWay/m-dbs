@@ -22,7 +22,7 @@ const Nav = () => {
     return (
         <nav className={styles.nav}>
             <Open></Open>
-            {navList.map((nav) => {
+            {[].map((nav) => {
                 const { pathname, mp, title } = nav
                 return (
                     <Link
@@ -35,8 +35,6 @@ const Nav = () => {
                     </Link>
                 )
             })}
-
-            <a href="/api/users">Users API</a>
         </nav>
     )
 }

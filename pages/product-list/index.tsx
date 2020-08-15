@@ -2,6 +2,7 @@ import Layout from '../../components/Layout'
 import GoodsList from '../../components/Goods'
 import { GetStaticPropsContext } from 'next'
 import { Goods } from '../../interfaces'
+import WingBlank from '../../components/WingBlank'
 
 type Props = {
     a: number
@@ -10,11 +11,15 @@ type Props = {
 }
 const ProductList = ({ a, message, sampleGoodsData }: Props) => (
     <Layout title="About | Next.js + TypeScript Example">
-        <h1>商品列表页</h1>
-        <p>查询条件：</p>
-        <GoodsList goods={sampleGoodsData}></GoodsList>
-        <span>{a}</span>
-        <span>{message}</span>
+
+        <WingBlank>
+            <h1>商品列表页</h1>
+            <p>查询条件：</p>
+            <GoodsList goods={sampleGoodsData}></GoodsList>
+            <span>{a}</span>
+            <span>{message}</span>
+        </WingBlank>
+
     </Layout>
 )
 
