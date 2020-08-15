@@ -1,18 +1,18 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
- import { Tags, Goods } from '../../interfaces'
+import { Goods } from '../../interfaces'
 import { sampleGoodsData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import GoodsList from '../../components/Goods'
 import WingBlank from '../../components/WingBlank'
 
 type Props = {
-    sampleGoodsData: Goods[],
+    sampleGoodsData: Goods[]
     title: string
     errors?: string
 }
 
-const StaticPropsDetail = ({ sampleGoodsData,title, errors }: Props) => {
+const StaticPropsDetail = ({ sampleGoodsData, title, errors }: Props) => {
     if (errors) {
         return (
             <Layout title="Error | Next.js + TypeScript Example">
@@ -24,14 +24,11 @@ const StaticPropsDetail = ({ sampleGoodsData,title, errors }: Props) => {
     }
 
     return (
-        <Layout
-            title={'User Detail'}
-        >
+        <Layout title={'User Detail'}>
             <WingBlank>
                 <b>{title}</b>
 
                 <GoodsList goods={sampleGoodsData}></GoodsList>
-
             </WingBlank>
         </Layout>
     )
@@ -41,15 +38,15 @@ export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // Get the paths we want to pre-render based on users
-    let host = 'https://dbs-shopping-mall.vercel.app/'
-
-    // host = 'http://localhost:3000';
-    let res = await fetch(`${host}/api/searchTags`)
-    let data = await res.json()
-    const paths = data.map((tag: Tags) => ({
-        params: { id: tag.label },
-    }))
-    return { paths, fallback: true }
+    // let host = 'https://dbs-shopping-mall.vercel.app/'
+    //
+    // // host = 'http://localhost:3000';
+    // let res = await fetch(`${host}/api/searchTags`)
+    // let data = await res.json()
+    // const paths = data.map((tag: Tags) => ({
+    //     params: { id: tag.label },
+    // }))
+    return { paths: { id: 105, label: 'T-shirt' }, fallback: true }
 }
 
 // This function gets called at build time on server-side.
@@ -61,7 +58,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         const item = sampleGoodsData.filter((data) => data.title === title)
         // By returning { props: item }, the StaticPropsDetail component
         // will receive `item` as a prop at build time
-        return { props: { sampleGoodsData: item, title }  }
+        return { props: { sampleGoodsData: item, title } }
     } catch (err) {
         return { props: { errors: err.message } }
     }
