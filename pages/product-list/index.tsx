@@ -11,7 +11,6 @@ type Props = {
 }
 const ProductList = ({ a, message, sampleGoodsData }: Props) => (
     <Layout title="About | Next.js + TypeScript Example">
-
         <WingBlank>
             <h1>商品列表页</h1>
             <p>查询条件：</p>
@@ -19,14 +18,13 @@ const ProductList = ({ a, message, sampleGoodsData }: Props) => (
             <span>{a}</span>
             <span>{message}</span>
         </WingBlank>
-
     </Layout>
 )
 
 export default ProductList
 // export const getStaticProps: GetStaticProps = async (context) => {
 export async function getStaticProps(context: GetStaticPropsContext) {
-    let host = 'https://dbs-shopping-mall.vercel.app/'
+    let host = 'https://m-dbs.vercel.app/'
     if (context.preview) {
         host = 'http://localhost:3000'
     }
