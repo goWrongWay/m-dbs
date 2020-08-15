@@ -7,11 +7,11 @@ import Open from '../../svgs/open.svg'
 // type Props = {
 //     primaryPath: string
 // }
-const navList = [
-    { pathname: '/', mp: '', title: 'Home' },
-    { pathname: '/women', mp: 'women', title: 'women' },
-    { pathname: '/men', mp: 'men', title: 'men' },
-]
+// const navList = [
+//     { pathname: '/', mp: '', title: 'Home' },
+//     { pathname: '/women', mp: 'women', title: 'women' },
+//     { pathname: '/men', mp: 'men', title: 'men' },
+// ]
 const Nav = () => {
     // 获取当前url参数中的mp，表示当前主导航，用作导航选中样式
     const [mainPath, setMainPath] = useState('')
