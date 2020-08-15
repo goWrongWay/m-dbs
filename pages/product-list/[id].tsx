@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 
-import { Goods } from '../../interfaces'
+import { Tags, Goods } from '../../interfaces'
 import { sampleGoodsData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import GoodsList from '../../components/Goods'
@@ -38,15 +38,15 @@ export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // Get the paths we want to pre-render based on users
-    // let host = 'https://dbs-shopping-mall.vercel.app/'
-    //
-    // // host = 'http://localhost:3000';
-    // let res = await fetch(`${host}/api/searchTags`)
-    // let data = await res.json()
-    // const paths = data.map((tag: Tags) => ({
-    //     params: { id: tag.label },
-    // }))
-    return { paths: { id: 105, label: 'T-shirt' }, fallback: true }
+    let host = 'https://dbs-shopping-mall.vercel.app/'
+
+    // host = 'http://localhost:3000';
+    let res = await fetch(`${host}/api/searchTags`)
+    let data = await res.json()
+    const paths = data.map((tag: Tags) => ({
+        params: { id: tag.label },
+    }))
+    return { paths, fallback: true }
 }
 
 // This function gets called at build time on server-side.
