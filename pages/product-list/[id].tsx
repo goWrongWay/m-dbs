@@ -38,7 +38,7 @@ export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
     // Get the paths we want to pre-render based on users
-    let host = 'https://m-dbs.vercel.app/'
+    let host = 'https://m-dbs.vercel.app'
 
     // host = 'http://localhost:3000';
     let res = await fetch(`${host}/api/searchTags`)
