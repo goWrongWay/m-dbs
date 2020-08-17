@@ -7,9 +7,14 @@ import commonStyle from '../less/common.less'
 type Props = {
     children?: ReactNode
     title?: string
+    back?: boolean
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => (
+const Layout = ({
+    children,
+    title = 'This is the default title',
+    back,
+}: Props) => (
     <div>
         <Head>
             <title>{title}</title>
@@ -19,7 +24,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
                 content="initial-scale=1.0, width=device-width"
             />
         </Head>
-        <Header />
+        <Header back />
         {children}
         <footer className={commonStyle.footer}>
             <ul className={commonStyle.footerList}>
@@ -41,7 +46,6 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
             </ul>
         </footer>
         <NavigationBar />
-
     </div>
 )
 

@@ -5,6 +5,8 @@ import { sampleGoodsData } from '../../utils/sample-data'
 import Layout from '../../components/Layout'
 import GoodsList from '../../components/Goods'
 import WingBlank from '../../components/WingBlank'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 type Props = {
     sampleGoodsData: Goods[]
@@ -13,6 +15,16 @@ type Props = {
 }
 
 const StaticPropsDetail = ({ sampleGoodsData, title, errors }: Props) => {
+    const router = useRouter()
+    const handleClick = (item: Goods) => {
+        // router.push({pathname: '/product-list', query: {id: item.id}})
+        console.log(item)
+        router.push('/detail/[id]', `/detail/${item.title}`)
+    }
+    useEffect(() => {
+        console.log(23)
+    })
+
     if (errors) {
         return (
             <Layout title="Error | Next.js + TypeScript Example">
@@ -27,8 +39,10 @@ const StaticPropsDetail = ({ sampleGoodsData, title, errors }: Props) => {
         <Layout title={'User Detail'}>
             <WingBlank>
                 <b>{title}</b>
-
-                <GoodsList goods={sampleGoodsData}></GoodsList>
+                <GoodsList
+                    handleClick={handleClick}
+                    goods={sampleGoodsData}
+                ></GoodsList>
             </WingBlank>
         </Layout>
     )

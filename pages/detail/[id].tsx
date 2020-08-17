@@ -1,44 +1,49 @@
-// import Swiper from 'swiper';
-// import Swiper styles
-// import 'swiper/swiper-bundle.css';
+import Layout from '../../components/Layout'
+// import Swip from '../../components/Swip'
+import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 
-// const swiper = new Swiper(...);
+const Swip = dynamic(() => import('../../components/Swip'), {
+    loading: () => <p>loading img</p>,
+})
 
-import { useLayoutEffect } from 'react'
-
-// const Swiper: any= dynamic((): any => import('swiper/react').then(s => s.Swiper))
-// const SwiperSlide= dynamic(() => import('swiper/react').then(s => s.SwiperSlide))
-// dynamic(() => import('swiper/swiper.less'))
-import { Swiper, SwiperSlide } from 'swiper/react'
-// const swiper = new Swiper(...);
-import('swiper/swiper.less')
 function Home() {
-    useLayoutEffect(() => {
-        // var swiper = new Swiper('.swiper-container');
-        // new Swiper('.swiper-container')
-        var headHTML = document.getElementsByTagName('head')[0].innerHTML
-        headHTML +=
-            '<link type="text/css" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">'
-        document.getElementsByTagName('head')[0].innerHTML = headHTML
-    })
+    const [arr, setArr]: any = useState([])
+    useEffect(() => {
+        setArr(() => {
+            return [
+                {
+                    src:
+                        '//img.ltwebstatic.com/images3_pi/2020/08/05/1596622309e2abeb2a1f4a15f447944a69fedc4c01_thumbnail_750x.webp',
+                },
+                {
+                    src:
+                        '//img.ltwebstatic.com/images3_pi/2020/08/05/15966223137aa2c4432d14647633a20ba03900b2d5_thumbnail_750x.webp',
+                },
+                {
+                    src:
+                        '//img.ltwebstatic.com/images3_pi/2020/08/05/1596622317d48b3c8fc1d81be443d0d910f41e5e5b_thumbnail_750x.webp',
+                },
+                {
+                    src:
+                        '//img.ltwebstatic.com/images3_pi/2020/08/05/1596622321e068ab8204b4d3e6d2a0432e412b0c9f_thumbnail_750x.webp',
+                },
+                {
+                    src:
+                        '//img.ltwebstatic.com/images3_pi/2020/08/05/15966223137aa2c4432d14647633a20ba03900b2d5_thumbnail_750x.webp',
+                },
+                {
+                    src:
+                        '//img.ltwebstatic.com/images3_pi/2020/08/05/15966223137aa2c4432d14647633a20ba03900b2d5_thumbnail_750x.webp',
+                },
+            ]
+        })
+    }, [])
     return (
         <div>
-            {
-                <Swiper
-                    spaceBetween={50}
-                    slidesPerView={3}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper: any) => console.log(swiper)}
-                >
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-                    <SwiperSlide>Slide 7</SwiperSlide>
-                </Swiper>
-            }
+            <Layout back>
+                <Swip imgList={arr} />
+            </Layout>
         </div>
     )
 }

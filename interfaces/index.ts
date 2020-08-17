@@ -22,3 +22,6 @@ export type Tags = {
     img?: string
 }
 
+export type ImgList = {
+    src: string
+}
