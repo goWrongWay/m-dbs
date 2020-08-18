@@ -12,8 +12,6 @@ const Swip = ({ imgList }: Props) => {
             <Swiper
                 slidesPerView="auto"
                 className={styles.swiperWrapper}
-                onLazyImageReady={() => 'loading1111'}
-                lazy={true}
                 spaceBetween={6}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper: any) => console.log(swiper)}
@@ -26,11 +24,7 @@ const Swip = ({ imgList }: Props) => {
                             key={index}
                         >
                             <div style={{ overflow: 'hidden' }}>
-                                <img
-                                    style={{ width: '70vmin' }}
-                                    src={item?.src}
-                                    alt=""
-                                />
+                                <img src={item?.src} alt="" />
                             </div>
                         </SwiperSlide>
                     )

@@ -8,12 +8,14 @@ type Props = {
     children?: ReactNode
     title?: string
     back?: boolean
+    navigation?: boolean
 }
 
 const Layout = ({
     children,
     title = 'This is the default title',
     back,
+    navigation,
 }: Props) => (
     <div>
         <Head>
@@ -45,7 +47,7 @@ const Layout = ({
                 </li>
             </ul>
         </footer>
-        <NavigationBar />
+        {navigation ? <NavigationBar /> : null}
     </div>
 )
 

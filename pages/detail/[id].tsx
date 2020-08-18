@@ -1,14 +1,19 @@
 import Layout from '../../components/Layout'
 // import Swip from '../../components/Swip'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 
-const Swip = dynamic(() => import('../../components/Swip'), {
-    loading: () => <p>loading img</p>,
-})
+// const Swip = dynamic(() => import('../../components/Swip'), {
+//     loading: () => <p>loading img</p>,
+// })
+import Swip from '../../components/Swip'
+import AddToBagBar from '../../components/AddToBagBar'
+import { useRouter } from 'next/router'
 
 function Home() {
     const [arr, setArr]: any = useState([])
+    const router = useRouter()
+
     useEffect(() => {
         setArr(() => {
             return [
@@ -41,8 +46,10 @@ function Home() {
     }, [])
     return (
         <div>
-            <Layout back>
+            <Layout back navigation={false}>
                 <Swip imgList={arr} />
+                <p>{router.query.id}</p>
+                <AddToBagBar />
             </Layout>
         </div>
     )
