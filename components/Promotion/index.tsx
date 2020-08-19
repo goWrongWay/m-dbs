@@ -10,7 +10,7 @@ const Promotion = () => {
                     alt="promotion"
                 />
                 <div className={styles.center}>
-                    <div className={styles.title}>初秋新格调 - 低至5折</div>
+                    <div className={styles.title}>初秋新格调</div>
                     <div className={styles.subTitle}>
                         此优惠仅限dbs指定商品, 截至2021年8月19日。
                     </div>

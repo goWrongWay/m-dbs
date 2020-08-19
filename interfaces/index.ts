@@ -25,3 +25,10 @@ export type Tags = {
 export type ImgList = {
     src: string
 }
+export type GoodsBasicInformation = {
+    id: string
+    title: string
+    price: string
+    size: { title: string; desc: string }[]
+    imgs: { src: string }[]
+}

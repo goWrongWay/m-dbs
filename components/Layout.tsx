@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import Head from 'next/head'
 import Header from './Header'
 import NavigationBar from './NavigationBar'
-import commonStyle from '../less/common.less'
+// import commonStyle from '../less/common.less'
 
 type Props = {
     children?: ReactNode
@@ -28,25 +28,25 @@ const Layout = ({
         </Head>
         <Header back />
         {children}
-        <footer className={commonStyle.footer}>
-            <ul className={commonStyle.footerList}>
-                <li>
-                    <div>
-                        <p>公司信息</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <p>联系我们</p>
-                    </div>
-                </li>
-                <li>
-                    <div>
-                        <p>支付方式</p>
-                    </div>
-                </li>
-            </ul>
-        </footer>
+        {/*<footer className={commonStyle.footer}>*/}
+        {/*    <ul className={commonStyle.footerList}>*/}
+        {/*        <li>*/}
+        {/*            <div>*/}
+        {/*                <p>公司信息</p>*/}
+        {/*            </div>*/}
+        {/*        </li>*/}
+        {/*        <li>*/}
+        {/*            <div>*/}
+        {/*                <p>联系我们</p>*/}
+        {/*            </div>*/}
+        {/*        </li>*/}
+        {/*        <li>*/}
+        {/*            <div>*/}
+        {/*                <p>支付方式</p>*/}
+        {/*            </div>*/}
+        {/*        </li>*/}
+        {/*    </ul>*/}
+        {/*</footer>*/}
         {navigation ? <NavigationBar /> : null}
     </div>
 )

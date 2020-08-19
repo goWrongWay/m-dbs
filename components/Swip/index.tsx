@@ -16,7 +16,7 @@ const Swip = ({ imgList }: Props) => {
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper: any) => console.log(swiper)}
             >
-                {imgList.map((item, index): any => {
+                {imgList?.map((item, index): any => {
                     return (
                         <SwiperSlide
                             style={{ overflow: 'hidden' }}
