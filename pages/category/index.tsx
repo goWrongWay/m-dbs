@@ -1,7 +1,7 @@
 import Layout from '../../components/Layout'
 import { GetStaticProps } from 'next'
 import { Category } from '../../interfaces'
-// import api from '../../const/api'
+import api from '../../const/api'
 import NavigationBar from '../../components/NavigationBar'
 
 type Props = {
@@ -19,18 +19,17 @@ const CategoryPage = ({ category }: Props) => {
     )
 }
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    // try {
-    //     let host = api.host
-    //     let res = await fetch(`${host}/api/category`)
-    //     let data = await res.json()
-    //     return {
-    //         props: { category: data },
-    //     }
-    // } catch (error) {
-    //     console.error(error)
-    //     return { props: {} }
-    // }
-    return { props: {} }
+    try {
+        let host = api.host
+        let res = await fetch(`${host}/api/category`)
+        let data = await res.json()
+        return {
+            props: { category: data },
+        }
+    } catch (error) {
+        console.error(error)
+        return { props: {} }
+    }
 }
 
 export default CategoryPage
