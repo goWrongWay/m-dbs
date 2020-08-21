@@ -1,4 +1,10 @@
-import { Goods, User, Tags, GoodsBasicInformation } from '../interfaces'
+import {
+    Goods,
+    User,
+    Tags,
+    GoodsBasicInformation,
+    Category,
+} from '../interfaces'
 
 /** Dummy user data. */
 export const sampleUserData: User[] = [
@@ -88,19 +94,19 @@ export const sampleGoodsBasicInformation: GoodsBasicInformation = {
     size: [
         {
             title: 'X',
-            desc: 'xdsdsd',
+            desc: 'Waist Size:: 69-106cm, Hip Size: 110cm, Length: 103cm',
         },
         {
             title: 'SX',
-            desc: 'sdsdsdsd',
+            desc: 'Waist Size:: 69-106cm, Hip Size: 110cm, Length: 103cm',
         },
         {
             title: 'M',
-            desc: 'mkmkmkm',
+            desc: 'Waist Size:: 72-116cm, Hip Size: 120cm, Length: 113cm',
         },
         {
             title: 'L',
-            desc: 'qw1wqwqwq',
+            desc: 'Waist Size:: 79-126cm, Hip Size: 130cm, Length: 133cm',
         },
     ],
     imgs: [
@@ -130,3 +136,86 @@ export const sampleGoodsBasicInformation: GoodsBasicInformation = {
         },
     ],
 }
+export const sampleCategory: Category[] = [
+    {
+        title: 'WOMEN',
+        children: [
+            {
+                title: 'NEW IN',
+                children: [
+                    {
+                        title: 'RECOMMENDATION',
+                        children: [
+                            {
+                                categoryId: '0',
+                                title: 'Girl Crop Sweatshirts',
+                                searchKey: 'Girl Crop Sweatshirts',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'KIDS',
+        children: [
+            {
+                title: 'FEATURED',
+                children: [
+                    {
+                        title: 'RECOMMENDATION',
+                        children: [
+                            {
+                                categoryId: '0',
+                                title: 'Girl Crop Sweatshirts',
+                                searchKey: 'Girl Crop Sweatshirts',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'FW 2020',
+                children: [
+                    {
+                        title: 'BABY TRENDS',
+                        children: [
+                            {
+                                categoryId: '0',
+                                title: 'Green',
+                                searchKey: 'Green',
+                                img: '//img',
+                            },
+                            {
+                                categoryId: '1',
+                                title: 'Floral',
+                                searchKey: 'floral',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'TRENDING COLOR',
+                        children: [
+                            {
+                                categoryId: '0',
+                                title: 'Pastel',
+                                searchKey: 'pastel',
+                                img: '//img',
+                            },
+                            {
+                                categoryId: '1',
+                                title: 'White',
+                                searchKey: 'White',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+]

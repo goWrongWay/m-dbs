@@ -1,5 +1,6 @@
 import Layout from '../components/Layout'
 import Promotion from '../components/Promotion'
+import NavigationBar from '../components/NavigationBar'
 import commonStyle from '../less/common.less'
 
 const IndexPage = () => (
@@ -7,6 +8,7 @@ const IndexPage = () => (
         <div className={`${commonStyle.col} ${commonStyle.center}`}>
             <Promotion></Promotion>
         </div>
+        <NavigationBar />
     </Layout>
 )
 

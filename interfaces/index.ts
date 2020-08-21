@@ -32,3 +32,24 @@ export type GoodsBasicInformation = {
     size: { title: string; desc: string }[]
     imgs: { src: string }[]
 }
+export type CategorySecond = {
+    title: string
+    img?: string
+    children: CategoryThird[]
+}
+export type CategoryThird = {
+    title: string
+    img?: string
+    children: CategoryItem[]
+}
+export type CategoryItem = {
+    categoryId: string
+    searchKey: string
+    title: string
+    img: string
+}
+export type Category = {
+    title: string
+    img?: string
+    children: CategorySecond[]
+}

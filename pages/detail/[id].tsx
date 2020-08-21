@@ -1,4 +1,6 @@
 import Layout from '../../components/Layout'
+import api from '../../const/api'
+
 // import Swip from '../../components/Swip'
 // import dynamic from 'next/dynamic'
 // const Swip = dynamic(() => import('../../components/Swip'), {
@@ -11,6 +13,7 @@ import WingBlank from '../../components/WingBlank'
 import BasicInformation from '../../components/Goods/BasicInformation'
 import { GetStaticProps } from 'next'
 import { GoodsBasicInformation } from '../../interfaces'
+import Separator from '../../components/Separator'
 
 type Props = {
     sampleGoodsBasicInfo: GoodsBasicInformation
@@ -28,6 +31,21 @@ const Home = ({ sampleGoodsBasicInfo }: Props) => {
                     ) : (
                         'loading'
                     )}
+                    <div>
+                        <p>23</p>
+                        <p>23</p>
+                        <p>23</p>
+                        <p>23</p>
+                        <p>23</p>
+                        <p>23</p>
+                        <p>23</p>
+                        <p>23</p>
+                        <p>23</p>
+                    </div>
+                    <Separator
+                        height="15vmin"
+                        background="transparent"
+                    ></Separator>
                 </WingBlank>
                 <AddToBagBar />
             </Layout>
@@ -47,15 +65,13 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
     }
 
     try {
-        let host = 'https://m-dbs.vercel.app'
-        //     host = 'http://localhost:3000'
+        let host = api.host
         let res = await fetch(`${host}/api/goods/basicInfo?id=${id}`)
         let data = await res.json()
         return {
             props: { sampleGoodsBasicInfo: data },
         }
     } catch (error) {
-        // The Twitter API most likely died
         console.error(error)
         return { props: {} }
     }

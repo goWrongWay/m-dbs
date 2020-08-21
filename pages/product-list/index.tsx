@@ -2,6 +2,7 @@ import Layout from '../../components/Layout'
 import GoodsList from '../../components/Goods'
 import { GetStaticPropsContext } from 'next'
 import { Goods } from '../../interfaces'
+import api from '../../const/api'
 import WingBlank from '../../components/WingBlank'
 
 type Props = {
@@ -24,10 +25,7 @@ const ProductList = ({ a, message, sampleGoodsData }: Props) => (
 export default ProductList
 // export const getStaticProps: GetStaticProps = async (context) => {
 export async function getStaticProps(context: GetStaticPropsContext) {
-    let host = 'https://m-dbs.vercel.app'
-    if (context.preview) {
-        host = 'http://localhost:3000'
-    }
+    let host = api.host
     let res = await fetch(`${host}/api/goods`)
     let data = await res.json()
     return {
