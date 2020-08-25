@@ -144,10 +144,26 @@ export const sampleCategory: Category[] = [
                 title: 'NEW IN',
                 children: [
                     {
-                        title: 'RECOMMENDATION',
+                        title: 'RECOMMENDATION0',
                         children: [
                             {
                                 categoryId: '0',
+                                title: 'Girl Crop Sweatshirts',
+                                searchKey: 'Girl Crop Sweatshirts',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'FEATURED',
+                children: [
+                    {
+                        title: 'BABY TRENDS',
+                        children: [
+                            {
+                                categoryId: '1',
                                 title: 'Girl Crop Sweatshirts',
                                 searchKey: 'Girl Crop Sweatshirts',
                                 img: '//img',
@@ -162,7 +178,7 @@ export const sampleCategory: Category[] = [
         title: 'KIDS',
         children: [
             {
-                title: 'FEATURED',
+                title: 'FEATURED1',
                 children: [
                     {
                         title: 'RECOMMENDATION',
@@ -199,6 +215,66 @@ export const sampleCategory: Category[] = [
                     },
                     {
                         title: 'TRENDING COLOR',
+                        children: [
+                            {
+                                categoryId: '0',
+                                title: 'Pastel',
+                                searchKey: 'pastel',
+                                img: '//img',
+                            },
+                            {
+                                categoryId: '1',
+                                title: 'White',
+                                searchKey: 'White',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'HOME',
+        children: [
+            {
+                title: '2019',
+                children: [
+                    {
+                        title: 'SUMMER',
+                        children: [
+                            {
+                                categoryId: '0',
+                                title: 'Girl Crop Sweatshirts',
+                                searchKey: 'Girl Crop Sweatshirts',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                title: 'FW 2019',
+                children: [
+                    {
+                        title: 'BABY GIRL TRENDS',
+                        children: [
+                            {
+                                categoryId: '0',
+                                title: 'Green',
+                                searchKey: 'Green',
+                                img: '//img',
+                            },
+                            {
+                                categoryId: '1',
+                                title: 'Floral',
+                                searchKey: 'floral',
+                                img: '//img',
+                            },
+                        ],
+                    },
+                    {
+                        title: 'COLOR FULL',
                         children: [
                             {
                                 categoryId: '0',
