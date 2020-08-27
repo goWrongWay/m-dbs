@@ -7,15 +7,21 @@ import {
     CategoryItem,
 } from '../../interfaces'
 import api from '../../const/api'
-import NavigationBar from '../../components/NavigationBar'
 import { useMemo, useState } from 'react'
 import CategoryNav from '../../components/Nav/Category'
+import Separator from '../../components/Separator'
+import SwipCard from '../../components/SwipCard'
 
 type Props = {
     category: Category[]
     asideData: CategorySecond[]
     blockData: CategoryThird[]
     itemData: CategoryItem[]
+}
+const components: {
+    [key: string]: Function
+} = {
+    swiper: SwipCard,
 }
 
 const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
@@ -39,15 +45,21 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
         getBlockData(activeAside)
     }, [activeAside])
     return (
-        <Layout title="About | Next.js + TypeScript Example">
+        <Layout title="About | Next.js + TypeScript Example" navigation>
             <CategoryNav
-                style={{ fontSize: '4vmin' }}
                 handleClick={(current: any) => setActiveCategory(current)}
                 active={activeCategory}
                 navList={category}
             />
-            <section style={{ display: 'flex', background: '#f1f0f0' }}>
-                <aside style={{ width: '20vmin' }}>
+            <Separator />
+            <section
+                style={{
+                    display: 'flex',
+                    background: '#f1f0f0',
+                    height: 'calc( 100vh - 100px)',
+                }}
+            >
+                <aside style={{ width: '28vmin' }}>
                     <CategoryNav
                         style={{ fontSize: '3vmin' }}
                         handleClick={(current: any) => setActiveAside(current)}
@@ -62,30 +74,32 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
                             <div
                                 style={{
                                     background: '#fff',
-                                    padding: '10px',
-                                    marginTop: '10px',
+                                    padding: '2vmin',
+                                    marginBottom: '2vmin',
                                 }}
                                 key={item.title}
                             >
                                 <p>{item.title}</p>
-                                <div>
-                                    {item?.children?.map((inner) => {
-                                        return (
-                                            <div key={inner.categoryId}>
-                                                <p>{inner.categoryId}</p>
-                                                <p>{inner.title}</p>
-                                                <p>{inner.searchKey}</p>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
+                                {components[item.type || ''] ? (
+                                    components[item.type || '']({ item })
+                                ) : (
+                                    <div>
+                                        {item?.children?.map((inner) => {
+                                            return (
+                                                <div key={inner.categoryId}>
+                                                    <p>{inner.categoryId}</p>
+                                                    <p>{inner.title}</p>
+                                                    <p>{inner.searchKey}</p>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                )}
                             </div>
                         )
                     })}
                 </main>
             </section>
-
-            <NavigationBar />
         </Layout>
     )
 }

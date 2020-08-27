@@ -40,6 +40,7 @@ export type CategorySecond = {
 export type CategoryThird = {
     title: string
     img?: string
+    type?: string
     children: CategoryItem[]
 }
 export type CategoryItem = {

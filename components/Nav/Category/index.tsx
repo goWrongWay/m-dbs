@@ -9,7 +9,7 @@ import {
 
 type Props = {
     navList: { title: string }[]
-    direction?: string
+    direction?: 'vertical'
     handleClick?: any
     active?: Category | CategorySecond | CategoryThird | CategoryItem
     style?: any
@@ -31,19 +31,28 @@ const CategoryNav = ({
         >
             {navList?.map((nav) => {
                 const { title } = nav
+                const act = active?.title === title
                 return (
                     <p
                         className={styles.p}
                         style={Object.assign({}, style, {
                             background:
-                                active?.title === title ? '#f1f0f0' : '#fff',
+                                act && direction === 'vertical'
+                                    ? '#f1f0f0'
+                                    : '#fff',
                         })}
                         key={title}
                         onClick={(
                             event: React.MouseEvent<HTMLElement, MouseEvent>
                         ) => handleClick && handleClick(nav)}
                     >
-                        {title}
+                        <span
+                            className={`${styles.span} ${
+                                act && !direction ? styles.active : ''
+                            }`}
+                        >
+                            {title}
+                        </span>
                     </p>
                 )
             })}
