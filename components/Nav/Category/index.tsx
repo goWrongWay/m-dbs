@@ -14,7 +14,7 @@ type Props = {
     active?: Category | CategorySecond | CategoryThird | CategoryItem
     style?: any
 }
-
+console.log(23)
 const CategoryNav = ({
     navList,
     direction,

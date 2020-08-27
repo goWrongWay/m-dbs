@@ -11,6 +11,7 @@ import { useMemo, useState } from 'react'
 import CategoryNav from '../../components/Nav/Category'
 import Separator from '../../components/Separator'
 import SwipCard from '../../components/SwipCard'
+import request from '../../net/request'
 
 type Props = {
     category: Category[]
@@ -25,27 +26,30 @@ const components: {
 }
 
 const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
+    // 选中的一级导航
     const [activeCategory, setActiveCategory] = useState(category[0])
+    // 二级导航数据
     const [asideDataState, setAsideData] = useState(asideData)
+    // 选中的二级导航
     const [activeAside, setActiveAside] = useState(asideDataState[0])
+    // 内容块
     const [blockDataState, setBlockData] = useState(blockData)
-    // const [activeBlock, setActivBlock] = useState(blockDataState[0])
-
     const getAsideData = (current: any) => {
-        setAsideData(current.children)
-        setActiveAside(current.children[0])
+        setAsideData(current?.children)
+        setActiveAside(current?.children[0])
     }
     const getBlockData = (current: any) => {
-        setBlockData(current.children)
+        console.log(current)
+        setBlockData(current?.children)
     }
     useMemo(() => {
         getAsideData(activeCategory)
     }, [activeCategory])
     useMemo(() => {
-        getBlockData(activeAside)
+        activeAside && getBlockData(activeAside)
     }, [activeAside])
     return (
-        <Layout title="About | Next.js + TypeScript Example" navigation>
+        <Layout title="Category" navigation>
             <CategoryNav
                 handleClick={(current: any) => setActiveCategory(current)}
                 active={activeCategory}
@@ -80,8 +84,8 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
                                 key={item.title}
                             >
                                 <p>{item.title}</p>
-                                {components[item.type || ''] ? (
-                                    components[item.type || '']({ item })
+                                {components[item?.type || ''] ? (
+                                    components[item?.type || '']({ item })
                                 ) : (
                                     <div>
                                         {item?.children?.map((inner) => {
@@ -106,19 +110,26 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     try {
         let host = api.host
-        let res = await fetch(`${host}/api/category`)
-        let data = await res.json()
+        let data = await request(`${host}/api/category`)
         const getData = (data: { children: any }) => data.children
+        const asideData = getData(data[0])
+        const blockData = getData(data[0]['children'][0])
         return {
             props: {
                 category: data,
-                asideData: getData(data[0]),
-                blockData: getData(data[0]['children'][0]),
+                asideData,
+                blockData,
             },
         }
     } catch (error) {
-        console.error(error)
-        return { props: {} }
+        console.error(error, 'cat')
+        return {
+            props: {
+                category: [],
+                asideData: [],
+                blockData: [],
+            },
+        }
     }
 }
 

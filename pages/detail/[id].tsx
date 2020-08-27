@@ -18,7 +18,7 @@ import Separator from '../../components/Separator'
 type Props = {
     sampleGoodsBasicInfo: GoodsBasicInformation
 }
-const Home = ({ sampleGoodsBasicInfo }: Props) => {
+const Detial = ({ sampleGoodsBasicInfo }: Props) => {
     return (
         <div>
             <Layout back navigation={false}>
@@ -53,7 +53,7 @@ const Home = ({ sampleGoodsBasicInfo }: Props) => {
     )
 }
 
-export default Home
+export default Detial
 export async function getStaticPaths() {
     return { paths: [], fallback: true }
 }
