@@ -12,6 +12,8 @@ import CategoryNav from '../../components/Nav/Category'
 import Separator from '../../components/Separator'
 import SwipCard from '../../components/SwipCard'
 import request from '../../net/request'
+import ThirdListCard from '../../components/ThirdListCard'
+import styles from './index.less'
 
 type Props = {
     category: Category[]
@@ -23,6 +25,8 @@ const components: {
     [key: string]: Function
 } = {
     swiper: SwipCard,
+    threeList: ThirdListCard,
+    default: ThirdListCard,
 }
 
 const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
@@ -39,7 +43,6 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
         setActiveAside(current?.children[0])
     }
     const getBlockData = (current: any) => {
-        console.log(current)
         setBlockData(current?.children)
     }
     useMemo(() => {
@@ -60,11 +63,12 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
                 style={{
                     display: 'flex',
                     background: '#f1f0f0',
-                    height: 'calc( 100vh - 100px)',
+                    height: 'calc( 100vh - 44vmin)',
                 }}
             >
-                <aside style={{ width: '28vmin' }}>
+                <aside className={styles.aside}>
                     <CategoryNav
+                        wrapperStyle={{ height: '100%', background: '#fff' }}
                         style={{ fontSize: '3vmin' }}
                         handleClick={(current: any) => setActiveAside(current)}
                         direction={'vertical'}
@@ -72,33 +76,12 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
                         navList={asideDataState}
                     />
                 </aside>
-                <main style={{ flex: 1, margin: '2vmin' }}>
+                <main className={styles.main}>
                     {blockDataState?.map((item) => {
                         return (
-                            <div
-                                style={{
-                                    background: '#fff',
-                                    padding: '2vmin',
-                                    marginBottom: '2vmin',
-                                }}
-                                key={item.title}
-                            >
+                            <div className={styles.block} key={item.title}>
                                 <p>{item.title}</p>
-                                {components[item?.type || ''] ? (
-                                    components[item?.type || '']({ item })
-                                ) : (
-                                    <div>
-                                        {item?.children?.map((inner) => {
-                                            return (
-                                                <div key={inner.categoryId}>
-                                                    <p>{inner.categoryId}</p>
-                                                    <p>{inner.title}</p>
-                                                    <p>{inner.searchKey}</p>
-                                                </div>
-                                            )
-                                        })}
-                                    </div>
-                                )}
+                                {components[item?.type || 'default']({ item })}
                             </div>
                         )
                     })}

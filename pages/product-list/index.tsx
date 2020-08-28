@@ -4,6 +4,7 @@ import { GetStaticPropsContext } from 'next'
 import { Goods } from '../../interfaces'
 import api from '../../const/api'
 import WingBlank from '../../components/WingBlank'
+import request from '../../net/request'
 
 type Props = {
     a: number
@@ -26,8 +27,7 @@ export default ProductList
 // export const getStaticProps: GetStaticProps = async (context) => {
 export async function getStaticProps(context: GetStaticPropsContext) {
     let host = api.host
-    let res = await fetch(`${host}/api/goods`)
-    let data = await res.json()
+    let data = await request(`${host}/api/goods`)
     return {
         props: { sampleGoodsData: data },
     }

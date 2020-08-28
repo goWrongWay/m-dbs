@@ -13,6 +13,7 @@ type Props = {
     handleClick?: any
     active?: Category | CategorySecond | CategoryThird | CategoryItem
     style?: any
+    wrapperStyle?: any
 }
 console.log(23)
 const CategoryNav = ({
@@ -21,10 +22,12 @@ const CategoryNav = ({
     handleClick,
     active,
     style,
+    wrapperStyle,
 }: Props) => {
     // 获取当前url参数中的mp，表示当前主导航，用作导航选中样式
     return (
         <nav
+            style={wrapperStyle}
             className={`${styles.nav} ${
                 direction === 'vertical' ? styles.vertical : ''
             }`}

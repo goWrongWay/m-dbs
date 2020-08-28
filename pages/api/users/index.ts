@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { sampleUserData } from '../../../utils/sample-data'
+import apiOutput from '../../../utils/apiOutput'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
     try {
@@ -7,7 +8,7 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
             throw new Error('Cannot find user data')
         }
 
-        res.status(200).json(sampleUserData)
+        res.status(200).json(apiOutput(sampleUserData))
     } catch (err) {
         res.status(500).json({ statusCode: 500, message: err.message })
     }

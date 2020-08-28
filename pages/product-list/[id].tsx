@@ -7,6 +7,8 @@ import GoodsList from '../../components/Goods'
 import WingBlank from '../../components/WingBlank'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import request from '../../net/request'
+import api from '../../const/api'
 
 type Props = {
     sampleGoodsData: Goods[]
@@ -51,12 +53,8 @@ const StaticPropsDetail = ({ sampleGoodsData, title, errors }: Props) => {
 export default StaticPropsDetail
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    // Get the paths we want to pre-render based on users
-    let host = 'https://m-dbs.vercel.app'
-
-    // host = 'http://localhost:3000';
-    let res = await fetch(`${host}/api/searchTags`)
-    let data = await res.json()
+    let host = api.host
+    let data = await request(`${host}/api/searchTags`)
     const paths = data.map((tag: Tags) => ({
         params: { id: tag.label },
     }))

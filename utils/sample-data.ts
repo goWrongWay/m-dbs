@@ -169,9 +169,24 @@ export const sampleCategory: Category[] = [
                         children: [
                             {
                                 categoryId: '0',
-                                title: 'Girl Crop Sweatshirts',
+                                title: 'Girl',
                                 searchKey: 'Girl Crop Sweatshirts',
-                                img: '//img',
+                                img:
+                                    'https://img.ltwebstatic.com/banner3/2020/01/07/1578389569c3e86790bebdb37695ff8aca376e452c.png',
+                            },
+                            {
+                                categoryId: '1',
+                                title: 'Sweatshirts',
+                                searchKey: 'BOY Crop Sweatshirts',
+                                img:
+                                    'https://img.ltwebstatic.com/banner3/2020/01/07/1578389497c224b11d562418db8accf9bf999203c2.png',
+                            },
+                            {
+                                categoryId: '2',
+                                title: 'HAHA',
+                                searchKey: 'BOY Crop Sweatshirts',
+                                img:
+                                    'https://img.ltwebstatic.com/images3_abc/2020/08/07/1596791122b920a99294a134048d0f74fa7a7f875a.png',
                             },
                         ],
                     },

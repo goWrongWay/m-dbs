@@ -14,6 +14,7 @@ import BasicInformation from '../../components/Goods/BasicInformation'
 import { GetStaticProps } from 'next'
 import { GoodsBasicInformation } from '../../interfaces'
 import Separator from '../../components/Separator'
+import request from '../../net/request'
 
 type Props = {
     sampleGoodsBasicInfo: GoodsBasicInformation
@@ -66,8 +67,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
     try {
         let host = api.host
-        let res = await fetch(`${host}/api/goods/basicInfo?id=${id}`)
-        let data = await res.json()
+        let data = await request(`${host}/api/goods/basicInfo?id=${id}`)
         return {
             props: { sampleGoodsBasicInfo: data },
         }
