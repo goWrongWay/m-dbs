@@ -30,6 +30,13 @@ export const sampleGoodsData: Goods[] = [
             'https://img.ltwebstatic.com/images3_pi/2020/07/24/15955866917d07bb5775bd0ae91fa62738496a64b4.webp',
     },
     {
+        id: 112,
+        title: 'Bob',
+        price: '$22',
+        imgurl:
+            'https://img.ltwebstatic.com/images3_pi/2020/07/24/15955866917d07bb5775bd0ae91fa62738496a64b4.webp',
+    },
+    {
         id: 103,
         title: 'Caroline',
         price: '$20',

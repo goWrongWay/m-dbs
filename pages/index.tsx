@@ -8,7 +8,7 @@ const IndexPage = () => (
         <div className={`${commonStyle.col} ${commonStyle.center}`}>
             <Promotion></Promotion>
         </div>
-        <NavigationBar />
+        <NavigationBar navigation={'/'} />
     </Layout>
 )
 

@@ -22,7 +22,7 @@ type Props = {
 const Detial = ({ sampleGoodsBasicInfo }: Props) => {
     return (
         <div>
-            <Layout back navigation={false}>
+            <Layout back>
                 <Swip imgList={sampleGoodsBasicInfo?.imgs} />
                 <WingBlank>
                     {sampleGoodsBasicInfo ? (

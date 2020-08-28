@@ -8,7 +8,7 @@ type Props = {
     children?: ReactNode
     title?: string
     back?: boolean
-    navigation?: boolean
+    navigation?: string
 }
 
 const Layout = ({
@@ -47,7 +47,7 @@ const Layout = ({
         {/*        </li>*/}
         {/*    </ul>*/}
         {/*</footer>*/}
-        {navigation ? <NavigationBar /> : null}
+        {navigation ? <NavigationBar navigation={navigation} /> : null}
     </div>
 )
 

@@ -52,7 +52,7 @@ const CategoryPage = ({ category, asideData, blockData, itemData }: Props) => {
         activeAside && getBlockData(activeAside)
     }, [activeAside])
     return (
-        <Layout title="Category" navigation>
+        <Layout title="Category" navigation={'/category'}>
             <CategoryNav
                 handleClick={(current: any) => setActiveCategory(current)}
                 active={activeCategory}

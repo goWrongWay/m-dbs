@@ -1,7 +1,9 @@
 import styles from './index.less'
-import React from 'react'
 import Link from 'next/link'
 
+type Props = {
+    navigation?: string
+}
 const nav = [
     {
         title: 'Shop',
@@ -16,25 +18,32 @@ const nav = [
     },
     {
         title: 'Bag',
-        url: '/',
+        url: '/bag',
 
         svg: '',
     },
     {
         title: 'Me',
-        url: '/',
+        url: '/me',
 
         svg: '',
     },
 ]
 
-const NavigationBar = () => {
+const NavigationBar = ({ navigation }: Props) => {
     return (
         <div className={styles.wrap}>
             <ul className={styles.ul}>
                 {nav.map((item) => {
                     return (
-                        <li className={styles.li} key={item.title}>
+                        <li
+                            style={{
+                                color:
+                                    navigation === item.url ? '#000' : 'unset',
+                            }}
+                            className={styles.li}
+                            key={item.title}
+                        >
                             <Link href={item.url}>
                                 <span>{item.title}</span>
                             </Link>
